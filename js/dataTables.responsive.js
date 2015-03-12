@@ -274,11 +274,12 @@ Responsive.prototype = {
 			}
 		}
 
-		// Finally we need to make sure that there is at least one column that
-		// is visible
-		if ( $.inArray( true, display ) === -1 ) {
-			display[0] = true;
-		}
+                // Finally we need to make sure that there is at least one column that
+                // is visible that is not the control column
+                var firstSelected = $.inArray(true, display)
+                if (firstSelected === -1 || columns[firstSelected].control ) {
+                    display[0] = true;
+                }
 
 		return display;
 	},
